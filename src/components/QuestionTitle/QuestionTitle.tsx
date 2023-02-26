@@ -3,7 +3,7 @@ import { EQuestTitle } from './QuestionTitle.styled';
 
 interface QuestionTitleProps {
   children: React.ReactNode;
-  color: string;
+  color?: string;
   margin?: string;
 }
 
