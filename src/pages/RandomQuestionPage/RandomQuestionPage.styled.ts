@@ -44,11 +44,24 @@ export const EAnswer = styled.p`
   font-weight: 400;
   line-height: 24px;
   letter-spacing: calc(16 / 24);
-  border-radius: 10px;
 
   background: rgba(233, 233, 233, 0.4);
   backdrop-filter: blur(10px);
+  border-radius: 4px;
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #5d5d5d;
+    border-radius: 50px;
+  }
 `;
 
 export const EIconButtonWrapper = styled.div`

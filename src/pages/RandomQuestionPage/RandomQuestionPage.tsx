@@ -3,7 +3,7 @@ import { useAppSelector } from '../../hooks/hooks';
 import { selectQuestions } from '../../redux/selectors';
 import { Box, Container } from '@mui/system';
 import { IconButton } from '../../components/IconButton/IconButton';
-import { getRandomNumber } from '../../utils/functions';
+import { getRandomNumber, getSortedQuestions } from '../../utils/functions';
 import {
   ERandomMain,
   ERandomWrapper,
@@ -19,19 +19,25 @@ import { BsQuestion } from 'react-icons/bs';
 
 export const RandomQuestionPage: FC = () => {
   const questions = useAppSelector(selectQuestions);
-  const [randomNumber, setRandomNumber] = useState<number>(90);
+  const [randomNumber, setRandomNumber] = useState<number>(0);
   const [activeBtn, setActiveBtn] = useState<string>('');
+  const sortedQuestions = getSortedQuestions(
+    questions,
+    questions[randomNumber].category
+  );
 
-  // useEffect(() => {
-  //   setRandomNumber(getRandomNumber(0, questions.length));
-  // }, [questions.length]);
+  useEffect(() => {
+    setRandomNumber(getRandomNumber(0, questions.length));
+  }, [questions.length]);
 
   return (
     <ERandomMain>
       <Container>
         <ERandomWrapper>
           <Box>
-            <EQuestion>{questions[randomNumber].question}</EQuestion>
+            <EQuestion color={sortedQuestions?.color}>
+              {questions[randomNumber].question}
+            </EQuestion>
             <EAnswer>{questions[randomNumber].answer}</EAnswer>
           </Box>
           <Box>

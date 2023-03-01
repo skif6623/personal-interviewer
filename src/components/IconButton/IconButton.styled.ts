@@ -11,7 +11,7 @@ export const EIconButton = styled.button`
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  background-color: #644e4e;
+  background-color: #5d5d5d;
   border: none;
   border-radius: 5px;
   :hover {
