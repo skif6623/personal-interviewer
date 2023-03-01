@@ -11,19 +11,13 @@ interface EProps {
 export const ECategoryItem = styled.li`
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: ${({ open }: EProps) => (open ? 'calc(100vh - 416px)' : '90px')};
   padding: 15px;
   background-image: url(${({ image }: EProps) => (image ? image : 'none')});
-  background-position-y: -80px;
   background-repeat: no-repeat;
-  transition: all 500ms ease;
+  background-size: cover;
+  transition: height 500ms ease;
   overflow: hidden;
-
-  @media (min-width: 768px) {
-    background-size: cover;
-  }
 `;
 
 export const ETitleWrap = styled.div`
@@ -48,13 +42,21 @@ export const ECategoryTitle = styled.h3`
   color: ${({ color }: EProps) => (color ? color : 'black')};
 `;
 
-export const EIconWrap = styled.div`
+export const ECenteredWrap = styled.div`
   position: absolute;
-  top: ${({ open }: EProps) => (open ? '10%' : '10%')};
-  right: ${({ open }: EProps) => (open ? '50%' : '0')};
-  transform: ${({ open }: EProps) =>
-    open ? 'translate(50%, 0)' : 'translate(50%, 0)'};
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+`;
+
+export const EIconWrap = styled.div`
+  position: relative;
+  top: ${({ open }: EProps) => (open ? '0' : '-100px')};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,16 +68,13 @@ export const EIconWrap = styled.div`
   border-radius: 50%;
   opacity: ${({ open }: EProps) => (open ? '1' : '0')};
   pointer-events: ${({ open }) => (open ? 'auto' : 'none')};
+
   transition: all 500ms ease 250ms;
 `;
 
 export const ECategoryBtn = styled(Link)`
-  position: absolute;
-  top: ${({ open }: EProps) => (open ? '70%' : '70%')};
-  left: ${({ open }: EProps) => (open ? '50%' : '0')};
-  transform: ${({ open }: EProps) =>
-    open ? 'translate(-50%, 0)' : 'translate(-50%, -50%)'};
-
+  position: relative;
+  bottom: ${({ open }: EProps) => (open ? '0' : '-100px')};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,8 +94,8 @@ export const ECategoryBtn = styled(Link)`
   border-radius: 4px;
   opacity: ${({ open }: EProps) => (open ? '1' : '0')};
   pointer-events: ${({ open }) => (open ? 'auto' : 'none')};
-  transition: top 500ms ease 250ms, left 500ms ease 250ms,
-    transform 500ms ease 250ms, opacity 500ms ease 250ms, box-shadow 250ms ease;
+  transition: bottom 500ms ease 250ms, opacity 500ms ease 250ms,
+    box-shadow 250ms ease;
 
   :hover {
     -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);

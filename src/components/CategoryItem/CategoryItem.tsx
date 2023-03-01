@@ -7,6 +7,7 @@ import {
   ETitleWrap,
   EIconWrap,
   ECategoryBtn,
+  ECenteredWrap,
 } from './CategoryItem.styled';
 
 interface ICategoryItemsProps {
@@ -37,12 +38,14 @@ export const CategoryItem: FC<ICategoryItemsProps> = ({
           <ECategoryTitle color={color}>{children}</ECategoryTitle>
         </ETitleOverlay>
       </ETitleWrap>
-      <EIconWrap open={activeItem} color={color}>
-        {icon}
-      </EIconWrap>
-      <ECategoryBtn to={`/${id}`} open={activeItem} color={color}>
-        {id}
-      </ECategoryBtn>
+      <ECenteredWrap>
+        <EIconWrap open={activeItem} color={color}>
+          {icon}
+        </EIconWrap>
+        <ECategoryBtn to={`/${id}`} open={activeItem} color={color}>
+          {id}
+        </ECategoryBtn>
+      </ECenteredWrap>
     </ECategoryItem>
   );
 };

@@ -2,8 +2,6 @@ import React, { FC, useState, useEffect } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectQuestions } from '../../redux/selectors';
 import { Box, Container } from '@mui/system';
-import { QuestionTitle } from '../../components/QuestionTitle/QuestionTitle';
-import { AnswerTitle } from '../../components/AnswerTitle/AnswerTitle';
 import { IconButton } from '../../components/IconButton/IconButton';
 import { getRandomNumber } from '../../utils/functions';
 import {
@@ -11,6 +9,8 @@ import {
   ERandomWrapper,
   ERandomButton,
   EIconButtonWrapper,
+  EAnswer,
+  EQuestion,
 } from './RandomQuestionPage.styled';
 
 import { HiOutlineCheck } from 'react-icons/hi';
@@ -19,22 +19,20 @@ import { BsQuestion } from 'react-icons/bs';
 
 export const RandomQuestionPage: FC = () => {
   const questions = useAppSelector(selectQuestions);
-  const [randomNumber, setRandomNumber] = useState<number>(0);
+  const [randomNumber, setRandomNumber] = useState<number>(90);
   const [activeBtn, setActiveBtn] = useState<string>('');
 
-  console.log('activeBtn:', activeBtn);
-
-  useEffect(() => {
-    setRandomNumber(getRandomNumber(0, questions.length));
-  }, [questions.length]);
+  // useEffect(() => {
+  //   setRandomNumber(getRandomNumber(0, questions.length));
+  // }, [questions.length]);
 
   return (
     <ERandomMain>
       <Container>
         <ERandomWrapper>
           <Box>
-            <QuestionTitle>{questions[randomNumber].question}</QuestionTitle>
-            <AnswerTitle>{questions[randomNumber].answer}</AnswerTitle>
+            <EQuestion>{questions[randomNumber].question}</EQuestion>
+            <EAnswer>{questions[randomNumber].answer}</EAnswer>
           </Box>
           <Box>
             <EIconButtonWrapper>
