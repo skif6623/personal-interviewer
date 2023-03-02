@@ -1,16 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = false;
+const initialState = '';
 
 const serviseSlice = createSlice({
-	name: "servise",
-	initialState,
-	reducers: {
-		isShowSearch(state, action) {
-			return action.payload;
-		},
-	},
+  name: 'servise',
+  initialState,
+  reducers: {
+    isShowSearch(state, action) {
+      return action.payload;
+    },
+  },
 });
 
-export const {isShowSearch} = serviseSlice.actions;
+export const { isShowSearch } = serviseSlice.actions;
 export const serviseReducer = serviseSlice.reducer;

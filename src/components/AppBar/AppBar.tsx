@@ -9,12 +9,13 @@ export const MainAppBar = () => {
 
   return (
     <>
-      <AppBar position={showSearch ? 'fixed' : 'static'}>
+      <AppBar position={showSearch === 'search' ? 'fixed' : 'static'}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
             <TbBrandJavascript size={40} />
           </Box>
-          {showSearch && <SearchQuestion />}
+          {showSearch === 'search' && <SearchQuestion />}
+          {showSearch === 'select' && <div>Вибрати мову</div>}
         </Toolbar>
       </AppBar>
     </>

@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
-import { useAppSelector } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { isShowSearch } from '../../redux/serviseSlice';
 import { selectQuestions } from '../../redux/selectors';
 import { Box, Container } from '@mui/system';
 import { IconButton } from '../../components/IconButton/IconButton';
@@ -18,17 +19,19 @@ import { MdWarningAmber } from 'react-icons/md';
 import { BsQuestion } from 'react-icons/bs';
 
 export const RandomQuestionPage: FC = () => {
-  const questions = useAppSelector(selectQuestions);
   const [randomNumber, setRandomNumber] = useState<number>(0);
   const [activeBtn, setActiveBtn] = useState<string>('');
+  const questions = useAppSelector(selectQuestions);
   const sortedQuestions = getSortedQuestions(
     questions,
     questions[randomNumber].category
   );
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
+    dispatch(isShowSearch('select'));
     setRandomNumber(getRandomNumber(0, questions.length));
-  }, [questions.length]);
+  }, [dispatch, questions.length]);
 
   return (
     <ERandomMain>

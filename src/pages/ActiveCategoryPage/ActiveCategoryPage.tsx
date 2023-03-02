@@ -22,7 +22,7 @@ export const ActiveCategoryPage: FC = () => {
 
   useEffect(() => {
     dispatch(fetchQuestions());
-    dispatch(isShowSearch(true));
+    dispatch(isShowSearch('search'));
   }, [dispatch]);
 
   return (
