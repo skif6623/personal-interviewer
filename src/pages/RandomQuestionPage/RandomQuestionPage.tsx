@@ -20,7 +20,7 @@ import { BsQuestion } from 'react-icons/bs';
 
 export const RandomQuestionPage: FC = () => {
   const [randomNumber, setRandomNumber] = useState<number>(0);
-  const [activeBtn, setActiveBtn] = useState<string>('');
+  // const [activeBtn, setActiveBtn] = useState<string>('');
   const questions = useAppSelector(selectQuestions);
   const sortedQuestions = getSortedQuestions(
     questions,
