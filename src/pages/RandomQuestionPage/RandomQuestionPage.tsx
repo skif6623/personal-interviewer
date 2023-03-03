@@ -46,16 +46,24 @@ export const RandomQuestionPage: FC = () => {
           <Box>
             <EIconButtonWrapper>
               <IconButton
-                active={setActiveBtn}
+                // active={setActiveBtn}
                 color="#d81f1f"
                 label="don't-know"
               >
                 <BsQuestion size={30} />
               </IconButton>
-              <IconButton active={setActiveBtn} color="#e2e24c" label="doubt">
+              <IconButton
+                // active={setActiveBtn}
+                color="#e2e24c"
+                label="doubt"
+              >
                 <MdWarningAmber size={30} />
               </IconButton>
-              <IconButton active={setActiveBtn} color="#5eaf5e" label="know">
+              <IconButton
+                // active={setActiveBtn}
+                color="#5eaf5e"
+                label="know"
+              >
                 <HiOutlineCheck size={30} />
               </IconButton>
             </EIconButtonWrapper>

@@ -5,17 +5,17 @@ interface IIconBtnProps {
   label: string;
   children: React.ReactNode;
   color: string;
-  active: Function;
+  // active: Function;
 }
 
 export const IconButton: FC<IIconBtnProps> = ({
   label,
   children,
   color,
-  active,
+  // active,
 }) => {
   return (
-    <EIconButton aria-label={label} color={color} onClick={() => active(label)}>
+    <EIconButton aria-label={label} color={color}>
       {children}
     </EIconButton>
   );
