@@ -12,6 +12,8 @@ import {
   EIconButtonWrapper,
   EAnswer,
   EQuestion,
+  EAnswerOverlay,
+  EAnswerSubtitle,
 } from './RandomQuestionPage.styled';
 
 import { HiOutlineCheck } from 'react-icons/hi';
@@ -20,6 +22,7 @@ import { BsQuestion } from 'react-icons/bs';
 
 export const RandomQuestionPage: FC = () => {
   const [randomNumber, setRandomNumber] = useState<number>(0);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   // const [activeBtn, setActiveBtn] = useState<string>('');
   const questions = useAppSelector(selectQuestions);
   const sortedQuestions = getSortedQuestions(
@@ -41,7 +44,14 @@ export const RandomQuestionPage: FC = () => {
             <EQuestion color={sortedQuestions?.color}>
               {questions[randomNumber].question}
             </EQuestion>
-            <EAnswer>{questions[randomNumber].answer}</EAnswer>
+            <EAnswer isOpen={isOpen}>
+              {questions[randomNumber].answer}
+              <EAnswerOverlay isOpen={isOpen}>
+                <EAnswerSubtitle onClick={() => setIsOpen(true)}>
+                  Show right answer
+                </EAnswerSubtitle>
+              </EAnswerOverlay>
+            </EAnswer>
           </Box>
           <Box>
             <EIconButtonWrapper>
@@ -70,9 +80,10 @@ export const RandomQuestionPage: FC = () => {
 
             <ERandomButton
               type="button"
-              onClick={() =>
-                setRandomNumber(getRandomNumber(0, questions.length))
-              }
+              onClick={() => {
+                setRandomNumber(getRandomNumber(0, questions.length));
+                setIsOpen(false);
+              }}
             >
               Next
             </ERandomButton>

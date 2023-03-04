@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 
+interface IProps {
+  isOpen: boolean;
+}
+
 export const ERandomMain = styled.main`
   background-image: url('https://cdn.pixabay.com/photo/2019/07/11/15/34/luck-4330900_960_720.jpg');
   background-position: -300px 50px;
@@ -34,7 +38,7 @@ export const EQuestion = styled.h3`
   border-radius: 50px;
 `;
 
-export const EAnswer = styled.p`
+export const EAnswer = styled.div`
   max-height: calc(100vh - 385px);
   margin-top: 30px;
   padding: 20px;
@@ -48,7 +52,7 @@ export const EAnswer = styled.p`
   background: rgba(233, 233, 233, 0.4);
   backdrop-filter: blur(10px);
   border-radius: 4px;
-  overflow-y: scroll;
+  overflow-y: ${({ isOpen }: IProps) => (isOpen ? 'scroll' : 'hidden')};
 
   ::-webkit-scrollbar {
     width: 10px;
@@ -62,6 +66,34 @@ export const EAnswer = styled.p`
     background-color: #5d5d5d;
     border-radius: 50px;
   }
+`;
+
+export const EAnswerOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(233, 233, 233, 0.8);
+  backdrop-filter: blur(10px);
+  opacity: ${({ isOpen }: IProps) => (isOpen ? '0' : '1')};
+  transition: opacity 500ms ease;
+`;
+
+export const EAnswerSubtitle = styled.p`
+  padding: 10px 20px;
+  text-align: center;
+
+  color: #ffffff;
+  background-color: #5eaf5e;
+  border-radius: 50px;
+  cursor: pointer;
 `;
 
 export const EIconButtonWrapper = styled.div`
