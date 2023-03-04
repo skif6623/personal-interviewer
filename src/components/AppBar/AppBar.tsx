@@ -4,6 +4,8 @@ import { SearchQuestion } from '../SearchQuestion/SearchQuestion';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectServise } from '../../redux/selectors';
 
+import { CategorySelector } from '../CategorySelector/CategorySelector';
+
 export const MainAppBar = () => {
   const showSearch = useAppSelector(selectServise);
 
@@ -15,7 +17,7 @@ export const MainAppBar = () => {
             <TbBrandJavascript size={40} />
           </Box>
           {showSearch === 'search' && <SearchQuestion />}
-          {showSearch === 'select' && <div>Вибрати мову</div>}
+          {showSearch === 'select' && <CategorySelector />}
         </Toolbar>
       </AppBar>
     </>

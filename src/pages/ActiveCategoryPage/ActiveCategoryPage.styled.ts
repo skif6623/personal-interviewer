@@ -5,6 +5,7 @@ interface IETypes {
 }
 
 export const EMain = styled.main`
+  min-height: 100vh;
   padding-top: 70px;
   background-image: url(${({ image }: IETypes) => (image ? image : null)});
   background-repeat: no-repeat;

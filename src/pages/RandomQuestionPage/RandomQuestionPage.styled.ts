@@ -80,7 +80,7 @@ export const EAnswerOverlay = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: rgba(233, 233, 233, 0.8);
+  background-color: rgba(233, 233, 233, 0.9);
   backdrop-filter: blur(10px);
   opacity: ${({ isOpen }: IProps) => (isOpen ? '0' : '1')};
   transition: opacity 500ms ease;

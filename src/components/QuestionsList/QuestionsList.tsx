@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useState } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectFilter } from '../../redux/selectors';
 import { SimpleAccordion } from '../Accordion/Accordion';
@@ -16,17 +15,8 @@ export const QuestionsList: FC<IQuestionListProps> = ({
   title,
   questParams,
 }) => {
-  const [activeAnswer, setActiveAnswer] = useState<string>('-1');
   const filter: string = useAppSelector(selectFilter);
   const visibleQuestions = getVisibleQuestions(filter, questParams);
-
-  const toggleAnswer = (id: string): void => {
-    if (id === activeAnswer) {
-      setActiveAnswer('-1');
-      return;
-    }
-    setActiveAnswer(id);
-  };
 
   return (
     <>
@@ -34,7 +24,7 @@ export const QuestionsList: FC<IQuestionListProps> = ({
       <EQuestList>
         {visibleQuestions.map(({ id, question, answer }: IQItem) => {
           return (
-            <EQuestItem key={id} onClick={() => toggleAnswer(id)}>
+            <EQuestItem key={id}>
               <SimpleAccordion
                 color={questParams.color}
                 question={question}
