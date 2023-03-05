@@ -51,3 +51,15 @@ export function getRandomNumber(min: number, max: number) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
+
+export const getSelectedCategory = (
+  questions: IQItem[],
+  categories: string[]
+) => {
+  if (categories.length) {
+    return questions.filter(item => {
+      return categories.includes(item.category);
+    });
+  }
+  return questions;
+};

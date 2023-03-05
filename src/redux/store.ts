@@ -2,6 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { questionsReducer } from './questionsSlice';
 import { filterReducer } from './filterSlice';
 import { serviseReducer } from './serviseSlice';
+import { selectorReducer } from './selectorSlice';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -18,6 +19,7 @@ export const store = configureStore({
     questions: persistedReducer,
     filter: filterReducer,
     servise: serviseReducer,
+    select: selectorReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,

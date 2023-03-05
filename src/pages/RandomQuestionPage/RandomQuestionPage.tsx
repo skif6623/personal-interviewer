@@ -1,10 +1,14 @@
 import React, { FC, useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { isShowSearch } from '../../redux/serviseSlice';
-import { selectQuestions } from '../../redux/selectors';
+import { selectQuestions, selectSelector } from '../../redux/selectors';
 import { Box, Container } from '@mui/system';
 import { IconButton } from '../../components/IconButton/IconButton';
-import { getRandomNumber, getSortedQuestions } from '../../utils/functions';
+import {
+  getRandomNumber,
+  getSortedQuestions,
+  getSelectedCategory,
+} from '../../utils/functions';
 import {
   ERandomMain,
   ERandomWrapper,
@@ -23,8 +27,12 @@ import { BsQuestion } from 'react-icons/bs';
 export const RandomQuestionPage: FC = () => {
   const [randomNumber, setRandomNumber] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  // const [activeBtn, setActiveBtn] = useState<string>('');
+
   const questions = useAppSelector(selectQuestions);
+  const categories = useAppSelector(selectSelector);
+
+  const selectedCategories = getSelectedCategory(questions, categories);
+
   const sortedQuestions = getSortedQuestions(
     questions,
     questions[randomNumber].category
@@ -33,8 +41,8 @@ export const RandomQuestionPage: FC = () => {
 
   useEffect(() => {
     dispatch(isShowSearch('select'));
-    setRandomNumber(getRandomNumber(0, questions.length));
-  }, [dispatch, questions.length]);
+    setRandomNumber(getRandomNumber(0, selectedCategories.length));
+  }, [dispatch, selectedCategories.length]);
 
   return (
     <ERandomMain>
@@ -55,25 +63,13 @@ export const RandomQuestionPage: FC = () => {
           </Box>
           <Box>
             <EIconButtonWrapper>
-              <IconButton
-                // active={setActiveBtn}
-                color="#d81f1f"
-                label="don't-know"
-              >
+              <IconButton color="#d81f1f" label="don't-know">
                 <BsQuestion size={30} />
               </IconButton>
-              <IconButton
-                // active={setActiveBtn}
-                color="#e2e24c"
-                label="doubt"
-              >
+              <IconButton color="#e2e24c" label="doubt">
                 <MdWarningAmber size={30} />
               </IconButton>
-              <IconButton
-                // active={setActiveBtn}
-                color="#5eaf5e"
-                label="know"
-              >
+              <IconButton color="#5eaf5e" label="know">
                 <HiOutlineCheck size={30} />
               </IconButton>
             </EIconButtonWrapper>

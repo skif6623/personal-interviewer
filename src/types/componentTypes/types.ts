@@ -6,10 +6,6 @@ export interface IQItem {
 }
 
 export interface IQState {
-  html: string[];
-  css: string[];
-  js: string[];
-  react: string[];
   items: IQItem[];
   isLoading: boolean;
   isError: boolean;
@@ -19,6 +15,7 @@ export interface IGlobalStore {
   questions: IQState;
   filter: string;
   servise: string;
+  select: string[];
 }
 
 export interface IQuestParams {
