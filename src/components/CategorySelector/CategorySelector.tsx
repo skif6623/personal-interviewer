@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Select from 'react-select';
+interface OptionProps {
+  value: string;
+  label: string;
+  color: string;
+}
 
-const options = [
+const options: OptionProps[] = [
   { value: 'html', label: 'HTML', color: '#f46a3b' },
   { value: 'css', label: 'CSS', color: '#2196f3' },
   { value: 'java-script', label: 'JS', color: '#e6c830' },
@@ -11,6 +16,7 @@ const options = [
 const colorStyles = {
   control: (styles: any) => ({
     ...styles,
+    minWidth: 250,
   }),
   option: (styles: any, { data }: any) => {
     return { ...styles, color: data.color };
@@ -22,7 +28,7 @@ const colorStyles = {
       backgroundColor: data.color,
     };
   },
-  multiValueLabel: (styles: any, { data }: any) => {
+  multiValueLabel: (styles: any) => {
     return {
       ...styles,
       color: '#ffffff',
@@ -30,7 +36,7 @@ const colorStyles = {
       fontWeight: 700,
     };
   },
-  multiValueRemove: (styles: any, { data }: any) => {
+  multiValueRemove: (styles: any) => {
     return {
       ...styles,
       color: '#ffffff',
@@ -42,9 +48,9 @@ const colorStyles = {
   },
 };
 
-export const CategorySelector = () => {
+export const CategorySelector: FC = () => {
   const handleChange = (opt: any) => {
-    // console.log(opt);
+    console.log(opt);
   };
 
   return (
