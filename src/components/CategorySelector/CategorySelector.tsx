@@ -66,6 +66,7 @@ export const CategorySelector: FC = () => {
       onChange={handleChange}
       isMulti
       styles={colorStyles}
+      isSearchable={false}
     />
   );
 };
