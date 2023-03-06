@@ -1,16 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ISelectorState } from '../types/componentTypes/types';
 
-const initialState: string[] = [];
+const initialState: ISelectorState = {
+  categories: [],
+  randomNumber: 0,
+};
 
 const selectorSlice = createSlice({
   name: 'select',
   initialState,
   reducers: {
     changeSelect(state, action) {
-      return [...action.payload];
+      return {
+        ...state,
+        categories: [...action.payload],
+      };
+    },
+    changeNumber(state, action) {
+      state.randomNumber = action.payload;
     },
   },
 });
 
-export const { changeSelect } = selectorSlice.actions;
+export const { changeSelect, changeNumber } = selectorSlice.actions;
 export const selectorReducer = selectorSlice.reducer;

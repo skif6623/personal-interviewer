@@ -15,11 +15,16 @@ export interface IGlobalStore {
   questions: IQState;
   filter: string;
   servise: string;
-  select: string[];
+  select: ISelectorState;
 }
 
 export interface IQuestParams {
   categoryItems: IQItem[];
   color: string;
   bg: string;
+}
+
+export interface ISelectorState {
+  categories: string[];
+  randomNumber: number;
 }

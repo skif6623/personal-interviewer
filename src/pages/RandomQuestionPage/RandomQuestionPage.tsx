@@ -1,7 +1,12 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { isShowSearch } from '../../redux/serviseSlice';
-import { selectQuestions, selectSelector } from '../../redux/selectors';
+import { changeNumber } from '../../redux/selectorSlice';
+import {
+  selectQuestions,
+  selectSelector,
+  selectRandomNumber,
+} from '../../redux/selectors';
 import { Box, Container } from '@mui/system';
 import { IconButton } from '../../components/IconButton/IconButton';
 import {
@@ -25,35 +30,34 @@ import { MdWarningAmber } from 'react-icons/md';
 import { BsQuestion } from 'react-icons/bs';
 
 export const RandomQuestionPage: FC = () => {
-  const [randomNumber, setRandomNumber] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const dispatch = useAppDispatch();
   const questions = useAppSelector(selectQuestions);
   const categories = useAppSelector(selectSelector);
+  const randomNumber = useAppSelector(selectRandomNumber);
 
-  const selectedCategories = getSelectedCategory(questions, categories);
-
-  const sortedQuestions = getSortedQuestions(
-    questions,
-    questions[randomNumber].category
+  const visibleCategories = getSelectedCategory(questions, categories);
+  const getCategoryColor = getSortedQuestions(
+    visibleCategories,
+    visibleCategories[randomNumber].category
   );
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(isShowSearch('select'));
-    setRandomNumber(getRandomNumber(0, selectedCategories.length));
-  }, [dispatch, selectedCategories.length]);
+    dispatch(changeNumber(getRandomNumber(0, visibleCategories.length - 1)));
+  }, [dispatch, visibleCategories.length]);
 
   return (
     <ERandomMain>
       <Container>
         <ERandomWrapper>
           <Box>
-            <EQuestion color={sortedQuestions?.color}>
-              {questions[randomNumber].question}
+            <EQuestion color={getCategoryColor?.color}>
+              {visibleCategories[randomNumber].question}
             </EQuestion>
             <EAnswer isOpen={isOpen}>
-              {questions[randomNumber].answer}
+              {visibleCategories[randomNumber].answer}
               <EAnswerOverlay isOpen={isOpen}>
                 <EAnswerSubtitle onClick={() => setIsOpen(true)}>
                   Show right answer
@@ -77,7 +81,9 @@ export const RandomQuestionPage: FC = () => {
             <ERandomButton
               type="button"
               onClick={() => {
-                setRandomNumber(getRandomNumber(0, questions.length));
+                dispatch(
+                  changeNumber(getRandomNumber(0, visibleCategories.length - 1))
+                );
                 setIsOpen(false);
               }}
             >

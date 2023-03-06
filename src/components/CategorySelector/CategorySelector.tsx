@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Select from 'react-select';
 import { useAppDispatch } from '../../hooks/hooks';
-import { changeSelect } from '../../redux/selectorSlice';
+import { changeSelect, changeNumber } from '../../redux/selectorSlice';
 
 interface OptionProps {
   value: string;
@@ -57,6 +57,7 @@ export const CategorySelector: FC = () => {
   const handleChange = (opt: any) => {
     const value = opt.map((item: OptionProps) => item.value);
     dispatch(changeSelect(value));
+    dispatch(changeNumber(0));
   };
 
   return (
