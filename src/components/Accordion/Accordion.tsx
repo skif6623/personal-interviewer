@@ -10,32 +10,34 @@ interface IAccordionProps {
   question: string;
   answer: string;
   color?: string;
+  index: number;
 }
 
 export const SimpleAccordion: FC<IAccordionProps> = ({
   answer,
   question,
   color,
+  index,
 }) => {
+  const sequenceNumber = index + 1;
+
   return (
     <div>
-      <EAccordion
-        sx={{
-          minHeight: '65px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
-      >
+      <EAccordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography sx={{ color: { color } }}>{question}</Typography>
+          <Typography sx={{ color: { color } }}>
+            {sequenceNumber}. {question}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{answer}</Typography>
+          <Typography>
+            {index}
+            {answer}
+          </Typography>
         </AccordionDetails>
       </EAccordion>
     </div>

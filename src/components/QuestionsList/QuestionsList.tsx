@@ -22,10 +22,11 @@ export const QuestionsList: FC<IQuestionListProps> = ({
     <>
       <ETitle>{title}</ETitle>
       <EQuestList>
-        {visibleQuestions.map(({ id, question, answer }: IQItem) => {
+        {visibleQuestions.map(({ id, question, answer }: IQItem, index) => {
           return (
             <EQuestItem key={id}>
               <SimpleAccordion
+                index={index}
                 color={questParams.color}
                 question={question}
                 answer={answer}
