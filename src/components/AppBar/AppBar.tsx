@@ -1,9 +1,10 @@
 import { AppBar, Toolbar, Box } from '@mui/material';
 import { TbBrandJavascript } from 'react-icons/tb';
-import { SearchQuestion } from '../SearchQuestion/SearchQuestion';
+
 import { useAppSelector } from '../../hooks/hooks';
 import { selectServise } from '../../redux/selectors';
 
+import { SearchQuestion } from '../SearchQuestion/SearchQuestion';
 import { CategorySelector } from '../CategorySelector/CategorySelector';
 
 export const MainAppBar = () => {

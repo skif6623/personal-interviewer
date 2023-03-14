@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
@@ -34,10 +35,7 @@ export const SimpleAccordion: FC<IAccordionProps> = ({
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            {index}
-            {answer}
-          </Typography>
+          <Typography>{answer}</Typography>
         </AccordionDetails>
       </EAccordion>
     </div>
