@@ -17,10 +17,10 @@ interface ICategoryItemsProps {
   image: string;
   id: string;
   active: string;
-  toggle: any;
+  toggle: Function;
 }
 
-export const CategoryItem: FC<ICategoryItemsProps> = ({
+export const Category: FC<ICategoryItemsProps> = ({
   children,
   icon,
   color,

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { CategoryItem } from '../CategoryItem/CategoryItem';
+import { Category } from '../CategoryItem/CategoryItem';
 import {
   EHtmlIcon,
   ECssIcon,
@@ -49,16 +49,16 @@ const categoryIcons = [
 export const CategoryList: FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('java-script');
 
-  const toggleCategory = (text: string): any => {
+  const toggleCategory = (text: string): void => {
     setActiveCategory(text);
   };
 
   return (
     <div>
       <ul>
-        {categoryIcons.map(({ icon, id, color, image }: any) => {
+        {categoryIcons.map(({ icon, id, color, image }) => {
           return (
-            <CategoryItem
+            <Category
               id={id}
               image={image}
               color={color}
@@ -68,7 +68,7 @@ export const CategoryList: FC = () => {
               toggle={toggleCategory}
             >
               {id}
-            </CategoryItem>
+            </Category>
           );
         })}
       </ul>

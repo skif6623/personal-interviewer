@@ -5,7 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import { EAccordion } from './Accordion.styled';
+import { AccordionWrapper } from './Accordion.styled';
 
 interface IAccordionProps {
   question: string;
@@ -23,8 +23,8 @@ export const SimpleAccordion: FC<IAccordionProps> = ({
   const sequenceNumber = index + 1;
 
   return (
-    <div>
-      <EAccordion>
+    <>
+      <AccordionWrapper>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -37,7 +37,7 @@ export const SimpleAccordion: FC<IAccordionProps> = ({
         <AccordionDetails>
           <Typography>{answer}</Typography>
         </AccordionDetails>
-      </EAccordion>
-    </div>
+      </AccordionWrapper>
+    </>
   );
 };
