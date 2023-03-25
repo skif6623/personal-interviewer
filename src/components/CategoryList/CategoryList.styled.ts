@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-
 import { FaHtml5, FaCss3Alt, FaReact } from 'react-icons/fa';
 import { DiJavascript1 } from 'react-icons/di';
 import { GiPerspectiveDiceSixFacesFour } from 'react-icons/gi';

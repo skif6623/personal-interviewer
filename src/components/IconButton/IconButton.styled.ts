@@ -5,15 +5,17 @@ interface IIconButtonProps {
 }
 
 export const EIconButton = styled.button`
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40px;
+  height: 40px;
+
   color: #ffffff;
   background-color: #5d5d5d;
   border: none;
   border-radius: 5px;
+
   :hover {
     background-color: ${({ color }: IIconButtonProps) =>
       color ? color : '#644e4e'};

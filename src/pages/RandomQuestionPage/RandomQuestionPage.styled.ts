@@ -10,25 +10,27 @@ export const ERandomMain = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+
   @media (min-width: 1100px) {
     background-position: 0 0;
   }
 `;
+
 export const ERandomWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   min-height: calc(100vh - 56px);
   padding-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 
 export const EQuestion = styled.h3`
-  margin-top: 30px;
-  padding: 0 15px;
-  min-height: 65px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
+  padding: 0 15px;
+  min-height: 65px;
 
   font-family: 'Roboto';
   text-align: center;
@@ -72,40 +74,41 @@ export const EAnswerOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 
   background-color: rgba(233, 233, 233, 0.9);
   backdrop-filter: blur(10px);
   opacity: ${({ isOpen }: IProps) => (isOpen ? '0' : '1')};
+
   transition: opacity 500ms ease;
 `;
 
 export const EAnswerSubtitle = styled.p`
   padding: 10px 20px;
-  text-align: center;
 
+  text-align: center;
   color: #ffffff;
+
   background-color: #5eaf5e;
   border-radius: 50px;
   cursor: pointer;
 `;
 
 export const EIconButtonWrapper = styled.div`
-  max-width: 350px;
-  height: 50px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 70px;
+  max-width: 350px;
+  height: 50px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 
   background: rgba(233, 233, 233, 0.4);
   backdrop-filter: blur(10px);
@@ -113,12 +116,11 @@ export const EIconButtonWrapper = styled.div`
 `;
 
 export const ERandomButton = styled.button`
-  margin: 0 auto;
-  padding: 20px 43px;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  padding: 20px 43px;
 
   text-decoration: none;
   text-transform: uppercase;
@@ -132,7 +134,9 @@ export const ERandomButton = styled.button`
   backdrop-filter: blur(10px);
   border: none;
   border-radius: 4px;
+
   transition: box-shadow 250ms ease;
+
   :hover {
     -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);

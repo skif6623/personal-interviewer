@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const ETitle = styled.h3`
   margin-bottom: 25px;
+
   font-size: 50px;
   text-align: center;
   text-transform: uppercase;
