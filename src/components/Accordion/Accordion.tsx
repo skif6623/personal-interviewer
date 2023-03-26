@@ -14,7 +14,7 @@ interface IAccordionProps {
   index: number;
 }
 
-export const SimpleAccordion: FC<IAccordionProps> = ({
+export const Accordion: FC<IAccordionProps> = ({
   answer,
   question,
   color,

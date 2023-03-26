@@ -1,21 +1,16 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { ICategoryProps } from '../../types/emotionTypes';
 
-interface CatItem {
-  image?: string;
-  open?: boolean;
-  color?: string;
-  id?: string;
-}
-
-export const ECategoryItem = styled.li`
+export const CatItem = styled.li`
   position: relative;
 
   display: flex;
-  height: ${({ open }: CatItem) => (open ? 'calc(100vh - 416px)' : '90px')};
+  height: ${({ open }: ICategoryProps) =>
+    open ? 'calc(100vh - 416px)' : '90px'};
   padding: 15px;
 
-  background-image: url(${({ image }: CatItem) => (image ? image : 'none')});
+  background-image: ${({ image }: ICategoryProps) => image && `url(${image})`};
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -24,16 +19,16 @@ export const ECategoryItem = styled.li`
   overflow: hidden;
 `;
 
-export const ETitleWrap = styled.div`
+export const CatTitleWrap = styled.div`
   height: 100%;
 
   pointer-events: ${({ open }) => (open ? 'none' : 'auto')};
-  opacity: ${({ open }: CatItem) => (open ? '0' : '1')};
+  opacity: ${({ open }: ICategoryProps) => (open ? '0' : '1')};
 
   transition: opacity 500ms ease;
 `;
 
-export const ETitleOverlay = styled.div`
+export const CatTitleOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,12 +39,12 @@ export const ETitleOverlay = styled.div`
   border-radius: 20px;
 `;
 
-export const ECategoryTitle = styled.h3`
+export const CatTitle = styled.h3`
   text-transform: uppercase;
-  color: ${({ color }: CatItem) => (color ? color : 'black')};
+  color: ${({ color }: ICategoryProps) => (color ? color : 'black')};
 `;
 
-export const ECenteredWrap = styled.div`
+export const CenteredWrap = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -62,9 +57,9 @@ export const ECenteredWrap = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const EIconWrap = styled.div`
+export const CatIconWrap = styled.div`
   position: relative;
-  top: ${({ open }: CatItem) => (open ? '0' : '-100px')};
+  top: ${({ open }: ICategoryProps) => (open ? '0' : '-100px')};
 
   display: flex;
   justify-content: center;
@@ -75,15 +70,15 @@ export const EIconWrap = styled.div`
   color: ${({ color }) => (color ? color : '#000000')};
   background-color: #ffffff;
   border-radius: 50%;
-  opacity: ${({ open }: CatItem) => (open ? '1' : '0')};
+  opacity: ${({ open }: ICategoryProps) => (open ? '1' : '0')};
   pointer-events: ${({ open }) => (open ? 'auto' : 'none')};
 
   transition: all 500ms ease 250ms;
 `;
 
-export const ECategoryBtn = styled(Link)`
+export const CatBtn = styled(Link)`
   position: relative;
-  bottom: ${({ open }: CatItem) => (open ? '0' : '-100px')};
+  bottom: ${({ open }: ICategoryProps) => (open ? '0' : '-100px')};
 
   display: flex;
   justify-content: center;
@@ -102,7 +97,7 @@ export const ECategoryBtn = styled(Link)`
   backdrop-filter: blur(10px);
   border: ${({ color }) => (color ? `2px solid ${color}` : '2px solid black')};
   border-radius: 4px;
-  opacity: ${({ open }: CatItem) => (open ? '1' : '0')};
+  opacity: ${({ open }: ICategoryProps) => (open ? '1' : '0')};
   pointer-events: ${({ open }) => (open ? 'auto' : 'none')};
 
   transition: bottom 500ms ease 250ms, opacity 500ms ease 250ms,

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectFilter } from '../../redux/selectors';
-import { SimpleAccordion } from '../Accordion/Accordion';
+import { Accordion } from '../Accordion/Accordion';
 import { ETitle, EQuestItem, EQuestList } from './QuestionsList.styled';
 import { IQItem, IQuestParams } from '../../types/componentTypes/types';
 import { getVisibleQuestions } from '../../utils/functions';
@@ -25,7 +25,7 @@ export const QuestionsList: FC<IQuestionListProps> = ({
         {visibleQuestions.map(({ id, question, answer }: IQItem, index) => {
           return (
             <EQuestItem key={id}>
-              <SimpleAccordion
+              <Accordion
                 index={index}
                 color={questParams.color}
                 question={question}

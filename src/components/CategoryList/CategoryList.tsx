@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Category } from '../CategoryItem/CategoryItem';
+import { Category } from '../CategoryItem/Category';
 import {
   EHtmlIcon,
   ECssIcon,
