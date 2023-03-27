@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectFilter } from '../../redux/selectors';
 import { Accordion } from '../Accordion/Accordion';
-import { ETitle, EQuestItem, EQuestList } from './QuestionsList.styled';
+import { QuestListTitle, QuestItem, QuestList } from './QuestionsList.styled';
 import { IQItem, IQuestParams } from '../../types/componentTypes/types';
 import { getVisibleQuestions } from '../../utils/functions';
 
@@ -20,21 +20,21 @@ export const QuestionsList: FC<IQuestionListProps> = ({
 
   return (
     <>
-      <ETitle>{title}</ETitle>
-      <EQuestList>
+      <QuestListTitle>{title}</QuestListTitle>
+      <QuestList>
         {visibleQuestions.map(({ id, question, answer }: IQItem, index) => {
           return (
-            <EQuestItem key={id}>
+            <QuestItem key={id}>
               <Accordion
                 index={index}
                 color={questParams.color}
                 question={question}
                 answer={answer}
               />
-            </EQuestItem>
+            </QuestItem>
           );
         })}
-      </EQuestList>
+      </QuestList>
     </>
   );
 };

@@ -1,10 +1,7 @@
 import styled from '@emotion/styled';
+import { IIconButtonProps } from '../../types/emotionTypes';
 
-interface IIconButtonProps {
-  color: string;
-}
-
-export const EIconButton = styled.button`
+export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

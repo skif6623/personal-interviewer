@@ -1,44 +1,44 @@
 import React, { FC, useState } from 'react';
 import { Category } from '../CategoryItem/Category';
 import {
-  EHtmlIcon,
-  ECssIcon,
-  EJsIcon,
-  EReactIcon,
-  EDiceIcon,
+  HtmlIcon,
+  CssIcon,
+  JsIcon,
+  ReactIcon,
+  DiceIcon,
 } from './CategoryList.styled';
 
 const categoryIcons = [
   {
-    icon: <EDiceIcon />,
+    icon: <DiceIcon />,
     id: 'random',
     color: '#3b3d3d',
     image:
       'https://cdn.pixabay.com/photo/2019/07/11/15/34/luck-4330900_960_720.jpg',
   },
   {
-    icon: <EHtmlIcon />,
+    icon: <HtmlIcon />,
     id: 'html',
     color: '#f46a3b',
     image:
       'https://cdn.pixabay.com/photo/2013/07/18/20/25/boat-164977_960_720.jpg',
   },
   {
-    icon: <ECssIcon />,
+    icon: <CssIcon />,
     id: 'css',
     color: '#2196f3',
     image:
       'https://cdn.pixabay.com/photo/2018/08/06/22/55/sun-3588618_960_720.jpg',
   },
   {
-    icon: <EJsIcon />,
+    icon: <JsIcon />,
     id: 'java-script',
     color: '#e6c830',
     image:
       'https://cdn.pixabay.com/photo/2016/11/21/13/29/yellow-1845394_960_720.jpg',
   },
   {
-    icon: <EReactIcon />,
+    icon: <ReactIcon />,
     id: 'react',
     color: '#00d8ff',
     image:

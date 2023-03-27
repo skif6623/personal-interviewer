@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ETitle = styled.h3`
+export const QuestListTitle = styled.h3`
   margin-bottom: 25px;
 
   font-size: 50px;
@@ -8,13 +8,13 @@ export const ETitle = styled.h3`
   text-transform: uppercase;
 `;
 
-export const EQuestList = styled.ul`
+export const QuestList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
 `;
 
-export const EQuestItem = styled.li`
+export const QuestItem = styled.li`
   display: flex;
   flex-direction: column;
 `;

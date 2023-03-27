@@ -4,3 +4,7 @@ export interface ICategoryProps {
   color?: string;
   id?: string;
 }
+
+export interface IIconButtonProps {
+  color: string;
+}

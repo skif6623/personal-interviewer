@@ -1,22 +1,16 @@
 import React, { FC } from 'react';
-import { EIconButton } from './IconButton.styled';
+import { Button } from './IconButton.styled';
 
 interface IIconBtnProps {
   label: string;
   children: React.ReactNode;
   color: string;
-  // active: Function;
 }
 
-export const IconButton: FC<IIconBtnProps> = ({
-  label,
-  children,
-  color,
-  // active,
-}) => {
+export const IconButton: FC<IIconBtnProps> = ({ label, children, color }) => {
   return (
-    <EIconButton aria-label={label} color={color}>
+    <Button aria-label={label} color={color}>
       {children}
-    </EIconButton>
+    </Button>
   );
 };
