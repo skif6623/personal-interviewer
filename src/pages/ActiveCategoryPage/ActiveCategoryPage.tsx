@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { isShowSearch } from '../../redux/serviseSlice';
@@ -9,16 +9,16 @@ import { selectQuestions } from '../../redux/selectors';
 import { QuestionsList } from '../../components/QuestionsList/QuestionsList';
 import { Container } from '@mui/system';
 
-import { EMain } from './ActiveCategoryPage.styled';
+import { Main } from './ActiveCategoryPage.styled';
 
 import { getSortedQuestions } from '../../utils/functions';
-import { IQItem } from '../../types/componentTypes/types';
 
 export const ActiveCategoryPage: FC = () => {
+  const questions = useAppSelector(selectQuestions);
   const { id } = useParams();
-  const dispatch = useAppDispatch();
-  const questions: IQItem[] = useAppSelector(selectQuestions);
   const questParams = getSortedQuestions(questions, id)!;
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchQuestions());
@@ -26,10 +26,10 @@ export const ActiveCategoryPage: FC = () => {
   }, [dispatch]);
 
   return (
-    <EMain image={questParams.bg}>
+    <Main image={questParams.bg}>
       <Container>
         <QuestionsList questParams={questParams} title={id} />
       </Container>
-    </EMain>
+    </Main>
   );
 };

@@ -1,14 +1,12 @@
 import styled from '@emotion/styled';
+import { IActiveCategoryProps } from '../../types/emotionTypes';
 
-interface IETypes {
-  image: string;
-}
-
-export const EMain = styled.main`
+export const Main = styled.main`
   min-height: 100vh;
   padding-top: 70px;
 
-  background-image: url(${({ image }: IETypes) => (image ? image : null)});
+  background-image: ${({ image }: IActiveCategoryProps) =>
+    image && `url(${image})`};
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

@@ -8,3 +8,11 @@ export interface ICategoryProps {
 export interface IIconButtonProps {
   color: string;
 }
+
+export interface IActiveCategoryProps {
+  image: string;
+}
+
+export interface IRandomQuestionProps {
+  isOpen: boolean;
+}

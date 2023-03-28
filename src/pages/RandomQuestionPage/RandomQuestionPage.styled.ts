@@ -1,8 +1,5 @@
 import styled from '@emotion/styled';
-
-interface IProps {
-  isOpen: boolean;
-}
+import { IRandomQuestionProps } from '../../types/emotionTypes';
 
 export const ERandomMain = styled.main`
   background-image: url('https://cdn.pixabay.com/photo/2019/07/11/15/34/luck-4330900_960_720.jpg');
@@ -54,7 +51,8 @@ export const EAnswer = styled.div`
   background: rgba(233, 233, 233, 0.4);
   backdrop-filter: blur(10px);
   border-radius: 4px;
-  overflow-y: ${({ isOpen }: IProps) => (isOpen ? 'scroll' : 'hidden')};
+  overflow-y: ${({ isOpen }: IRandomQuestionProps) =>
+    isOpen ? 'scroll' : 'hidden'};
 
   ::-webkit-scrollbar {
     width: 10px;
@@ -84,7 +82,7 @@ export const EAnswerOverlay = styled.div`
 
   background-color: rgba(233, 233, 233, 0.9);
   backdrop-filter: blur(10px);
-  opacity: ${({ isOpen }: IProps) => (isOpen ? '0' : '1')};
+  opacity: ${({ isOpen }: IRandomQuestionProps) => (isOpen ? '0' : '1')};
 
   transition: opacity 500ms ease;
 `;

@@ -10,7 +10,6 @@ interface ISearchQuestionProps {
 }
 
 export const SearchQuestion: FC<ISearchQuestionProps> = ({ color }) => {
-  console.log(color);
   const inputValue = useAppSelector(selectFilter);
   const dispatch = useAppDispatch();
 
