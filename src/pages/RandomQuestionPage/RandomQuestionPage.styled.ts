@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { IRandomQuestionProps } from '../../types/emotionTypes';
 
-export const ERandomMain = styled.main`
+export const RandomMain = styled.main`
   background-image: url('https://cdn.pixabay.com/photo/2019/07/11/15/34/luck-4330900_960_720.jpg');
   background-position: -300px 50px;
   background-repeat: no-repeat;
@@ -13,7 +13,7 @@ export const ERandomMain = styled.main`
   }
 `;
 
-export const ERandomWrapper = styled.div`
+export const RandomWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -21,7 +21,7 @@ export const ERandomWrapper = styled.div`
   padding-bottom: 30px;
 `;
 
-export const EQuestion = styled.h3`
+export const RandomQuestion = styled.h3`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,7 +37,7 @@ export const EQuestion = styled.h3`
   border-radius: 50px;
 `;
 
-export const EAnswer = styled.div`
+export const RandomAnswer = styled.div`
   max-height: calc(100vh - 385px);
   margin-top: 30px;
   padding: 20px;
@@ -68,7 +68,7 @@ export const EAnswer = styled.div`
   }
 `;
 
-export const EAnswerOverlay = styled.div`
+export const RandomAnswerOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -87,7 +87,7 @@ export const EAnswerOverlay = styled.div`
   transition: opacity 500ms ease;
 `;
 
-export const EAnswerSubtitle = styled.p`
+export const RandomAnswerSubtitle = styled.p`
   padding: 10px 20px;
 
   text-align: center;
@@ -98,7 +98,7 @@ export const EAnswerSubtitle = styled.p`
   cursor: pointer;
 `;
 
-export const EIconButtonWrapper = styled.div`
+export const IconButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +113,7 @@ export const EIconButtonWrapper = styled.div`
   border-radius: 50px;
 `;
 
-export const ERandomButton = styled.button`
+export const RandomButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

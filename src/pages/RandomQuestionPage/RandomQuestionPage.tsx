@@ -15,14 +15,14 @@ import {
   getSelectedCategory,
 } from '../../utils/functions';
 import {
-  ERandomMain,
-  ERandomWrapper,
-  ERandomButton,
-  EIconButtonWrapper,
-  EAnswer,
-  EQuestion,
-  EAnswerOverlay,
-  EAnswerSubtitle,
+  RandomMain,
+  RandomWrapper,
+  RandomButton,
+  IconButtonWrapper,
+  RandomAnswer,
+  RandomQuestion,
+  RandomAnswerOverlay,
+  RandomAnswerSubtitle,
 } from './RandomQuestionPage.styled';
 
 import { HiOutlineCheck } from 'react-icons/hi';
@@ -49,24 +49,24 @@ export const RandomQuestionPage: FC = () => {
   }, [dispatch, visibleCategories.length]);
 
   return (
-    <ERandomMain>
+    <RandomMain>
       <Container>
-        <ERandomWrapper>
+        <RandomWrapper>
           <Box>
-            <EQuestion color={getCategoryColor?.color}>
+            <RandomQuestion color={getCategoryColor?.color}>
               {visibleCategories[randomNumber].question}
-            </EQuestion>
-            <EAnswer isOpen={isOpen}>
+            </RandomQuestion>
+            <RandomAnswer isOpen={isOpen}>
               {visibleCategories[randomNumber].answer}
-              <EAnswerOverlay isOpen={isOpen}>
-                <EAnswerSubtitle onClick={() => setIsOpen(true)}>
+              <RandomAnswerOverlay isOpen={isOpen}>
+                <RandomAnswerSubtitle onClick={() => setIsOpen(true)}>
                   Show right answer
-                </EAnswerSubtitle>
-              </EAnswerOverlay>
-            </EAnswer>
+                </RandomAnswerSubtitle>
+              </RandomAnswerOverlay>
+            </RandomAnswer>
           </Box>
           <Box>
-            <EIconButtonWrapper>
+            <IconButtonWrapper>
               <IconButton color="#d81f1f" label="don't-know">
                 <BsQuestion size={30} />
               </IconButton>
@@ -76,9 +76,9 @@ export const RandomQuestionPage: FC = () => {
               <IconButton color="#5eaf5e" label="know">
                 <HiOutlineCheck size={30} />
               </IconButton>
-            </EIconButtonWrapper>
+            </IconButtonWrapper>
 
-            <ERandomButton
+            <RandomButton
               type="button"
               onClick={() => {
                 dispatch(
@@ -88,10 +88,10 @@ export const RandomQuestionPage: FC = () => {
               }}
             >
               Next
-            </ERandomButton>
+            </RandomButton>
           </Box>
-        </ERandomWrapper>
+        </RandomWrapper>
       </Container>
-    </ERandomMain>
+    </RandomMain>
   );
 };
