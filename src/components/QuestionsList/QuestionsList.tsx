@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { selectFilter } from '../../redux/selectors';
 import { Accordion } from '../Accordion/Accordion';
@@ -17,19 +17,25 @@ export const QuestionsList: FC<IQuestionListProps> = ({
 }) => {
   const filter: string = useAppSelector(selectFilter);
   const visibleQuestions = getVisibleQuestions(filter, questParams);
-
   return (
     <>
       <QuestListTitle>{title}</QuestListTitle>
       <QuestList>
         {visibleQuestions.map(({ id, question, answer }: IQItem, index) => {
+          const rows = answer.split('\n');
+          const formatedAnswer = rows.map((row: any, index: any) => (
+            <div>
+              {row}
+              {index !== rows.length - 1 && <br />}
+            </div>
+          ));
           return (
             <QuestItem key={id}>
               <Accordion
                 index={index}
                 color={questParams.color}
                 question={question}
-                answer={answer}
+                answer={formatedAnswer}
               />
             </QuestItem>
           );

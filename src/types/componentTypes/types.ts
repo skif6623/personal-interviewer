@@ -1,7 +1,7 @@
 export interface IQItem {
   id: string;
   question: string;
-  answer: string;
+  answer: any;
   category: string;
 }
 
