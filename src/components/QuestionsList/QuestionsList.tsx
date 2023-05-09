@@ -23,15 +23,16 @@ export const QuestionsList: FC<IQuestionListProps> = ({
       <QuestList>
         {visibleQuestions.map(({ id, question, answer }: IQItem, index) => {
           const rows = answer.split('\n');
-          const formatedAnswer = rows.map((row: any, index: any) => (
-            <div>
+          const formatedAnswer = rows.map((row: any, position: any) => (
+            <Fragment key={position}>
               {row}
-              {index !== rows.length - 1 && <br />}
-            </div>
+              {position !== rows.length - 1 && <br />}
+            </Fragment>
           ));
           return (
             <QuestItem key={id}>
               <Accordion
+                id={id}
                 index={index}
                 color={questParams.color}
                 question={question}

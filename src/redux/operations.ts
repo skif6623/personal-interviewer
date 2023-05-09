@@ -9,7 +9,6 @@ export const fetchQuestions = createAsyncThunk(
     try {
       const response1 = await axios.get('/questions');
       const response2 = await axios.get('/questions2');
-      console.log(response1.data);
       const response = [...response1.data, ...response2.data];
       return response;
     } catch (error: any) {

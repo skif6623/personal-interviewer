@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AccordionWrapper } from './Accordion.styled';
 
 interface IAccordionProps {
+  id: string;
   question: string;
   answer: string;
   color?: string;
@@ -15,6 +16,7 @@ interface IAccordionProps {
 }
 
 export const Accordion: FC<IAccordionProps> = ({
+  id,
   answer,
   question,
   color,
@@ -34,7 +36,7 @@ export const Accordion: FC<IAccordionProps> = ({
             {sequenceNumber}. {question}
           </Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails key={id}>
           <Typography>{answer}</Typography>
         </AccordionDetails>
       </AccordionWrapper>
