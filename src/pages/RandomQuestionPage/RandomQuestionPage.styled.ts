@@ -48,7 +48,7 @@ export const RandomAnswer = styled.div`
   line-height: 24px;
   letter-spacing: calc(16 / 24);
 
-  background: rgba(233, 233, 233, 0.4);
+  background-color: #ffffff;
   backdrop-filter: blur(10px);
   border-radius: 4px;
   overflow-y: ${({ isOpen }: IRandomQuestionProps) =>
