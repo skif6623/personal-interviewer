@@ -1,4 +1,5 @@
 import { TbBrandJavascript } from 'react-icons/tb';
+import { Logo } from '../Logo/Logo';
 import { AppBar, Toolbar } from '@mui/material';
 
 import { useAppSelector } from '../../hooks/hooks';
@@ -16,7 +17,7 @@ export const MainAppBar = () => {
       <AppBar position={showSearch === 'search' ? 'fixed' : 'static'}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Link to="/">
-            <TbBrandJavascript size={40} color="white" />
+            <Logo />
           </Link>
           {showSearch === 'search' && <SearchQuestion />}
           {showSearch === 'select' && <CategorySelector />}
